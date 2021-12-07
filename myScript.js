@@ -1,12 +1,43 @@
-//create an array with the different options: rock, paper scissors.
-const userOptions = ["rock", "paper", "scissors"]; 
-//make a function that randomly selects one of the strings.
-function 
-//let the function run when the user enters a valid option.
-//let the function be named computerPlay
-// create a variable to store the users' choice: userInput
-// If users' input is valid - trigger a function that produces a random computer output from the array userOptions and store it 
-//in a variable called randomOutput
-//Once generated. Compare the randomOutput to the userInput using < >. 
-//Establish the winners. Rock >scissors. scissors>paper, paper>rock
-//If userInput is greater than randomOutput alert "you win", else "you lose"
+//a function that randomly selects a string
+function computerPlay() {
+    let choices = ['rock', 'paper', 'scissors']
+    return choices[Math.floor(Math.random() * choices.length)]
+}
+//it works
+console.log(computerPlay())
+//establisth variables - force playerSelection to lower case to desensitize it. ".toLowerCase()"
+const playerSelection = 'rock'
+playerSelection.toLowerCase()
+const computerSelection = computerPlay() 
+//create a function to compare playerSelection to computerSelection
+function playRound(playerSelection, computerSelection) {
+    let log = '';
+  
+    if (playerSelection === 'rock') {
+      if (computerSelection === 'paper') {
+        log = 'You Lose! Paper beats Rock';
+      } else if (computerSelection === 'scissors') {
+        log = 'You Win! Rock beats Scissors';
+      } else {
+        log = "It's a tie";
+      }
+    } else if (playerSelection === 'paper') {
+      if (computerSelection === 'scissors') {
+        log = 'You Lose! Scissors beats Paper';
+      } else if (computerSelection === 'rock') {
+        log = 'You Win! Paper beats Rock';
+      } else {
+        log = "It's a tie";
+      }
+    } else if (playerSelection === 'scissors') {
+      if (computerSelection === 'rock') {
+        log = 'You Lose! Rock beats Scissors';
+      } else if (computerSelection === 'paper') {
+        log = 'You Win! Scissors beats Paper';
+      } else {
+        log = "It's a tie";
+      }
+    }
+  
+    return log;
+  }
