@@ -3,41 +3,34 @@ function computerPlay() {
     let choices = ['rock', 'paper', 'scissors']
     return choices[Math.floor(Math.random() * choices.length)]
 }
-//it works
-console.log(computerPlay())
-//establisth variables - force playerSelection to lower case to desensitize it. ".toLowerCase()"
-const playerSelection = 'rock'
-playerSelection.toLowerCase()
-const computerSelection = computerPlay() 
+
+//establisth variables 
+let playerSelection = "rock";
+//working, I think I was calling the same function twice. When I logged I got two different values. 
+let computerSelection = computerPlay();
+console.log(computerSelection);
+
 //create a function to compare playerSelection to computerSelection
 function playRound(playerSelection, computerSelection) {
-    let log = '';
-  
-    if (playerSelection === 'rock') {
-      if (computerSelection === 'paper') {
-        log = 'You Lose! Paper beats Rock';
-      } else if (computerSelection === 'scissors') {
-        log = 'You Win! Rock beats Scissors';
-      } else {
-        log = "It's a tie";
-      }
-    } else if (playerSelection === 'paper') {
-      if (computerSelection === 'scissors') {
-        log = 'You Lose! Scissors beats Paper';
-      } else if (computerSelection === 'rock') {
-        log = 'You Win! Paper beats Rock';
-      } else {
-        log = "It's a tie";
-      }
-    } else if (playerSelection === 'scissors') {
-      if (computerSelection === 'rock') {
-        log = 'You Lose! Rock beats Scissors';
-      } else if (computerSelection === 'paper') {
-        log = 'You Win! Scissors beats Paper';
-      } else {
-        log = "It's a tie";
-      }
-    }
-  
-    return log;
-  }
+// your code here! - if statements not working properly - force playerSelection to lower case to desensitize it. ".toLowerCase()" 
+        computerSelection = computerPlay().toLowerCase();
+        playerSelection = playerSelection.toLowerCase();
+        
+        if (computerSelection == playerSelection) {
+            return ("Tie game!");
+        }else if(playerSelection==="rock" && computerSelection === "paper"){
+            return ("You lose. Paper beats rock.")
+        }else if(playerSelection==="rock" && computerSelection === "scissors"){
+            return result ("You win. Rock beats scissors.")
+        }else if(playerSelection==="scissors" && computerSelection === "rock"){
+            return result ("You lose. Rock beats scissors.")
+        }else if(playerSelection==="scissors" && computerSelection === "paper"){
+            return result ("You win. Scissors beats paper.")
+        }else if(playerSelection==="paper" && computerSelection === "rock"){
+            return result ("You win. Paper beats rock.")
+        }else if(playerSelection==="paper" && computerSelection === "scissors"){
+            return result ("You lose. Scissors beats paper.")
+        }
+}
+  //calling the function
+  console.log(playRound());
